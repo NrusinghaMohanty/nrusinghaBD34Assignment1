@@ -28,7 +28,7 @@ app.get('/cart/add',(req, res) => {
 
 
 //Exercise 2
-const markVideoAsFavorite = (cart, productId, quantity) => {
+const editByQuantity = (cart, productId, quantity) => {
   for(let i=0; i < cart.length; i++){
     if(cart[i].productId === productId) {
       cart[i].quantity = quantity;
@@ -40,7 +40,7 @@ const markVideoAsFavorite = (cart, productId, quantity) => {
 app.get('/cart/edit',(req, res) => {
   let productId = parseInt(req.query.productId)
   let quantity = parseInt(req.query.quantity)
-  let result = markVideoAsFavorite(cart, productId, quantity)
+  let result = editByQuantity(cart, productId, quantity)
   res.json({ cartItems:  result})
 })
 
